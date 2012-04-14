@@ -1,0 +1,8 @@
+$PBExportHeader$bitwise_and.srf
+global type bitwise_and from function_object
+end type
+
+type prototypes
+global intrinsic function unsignedlong bitwise_and (unsignedlong x, unsignedlong y) system library "fastfuncs100.dll" alias for "Bitwise_And"
+end prototypes
+

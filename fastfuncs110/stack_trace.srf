@@ -1,0 +1,8 @@
+HA$PBExportHeader$stack_trace.srf
+global type stack_trace from function_object
+end type
+
+type prototypes
+global function boolean stack_trace (ref string as_call_stack[]) system library 'fastfuncs110.dll' alias for "Stack_Trace"
+end prototypes
+

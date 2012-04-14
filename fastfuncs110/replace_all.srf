@@ -1,0 +1,9 @@
+$PBExportHeader$replace_all.srf
+global type replace_all from function_object
+end type
+
+type prototypes
+global function string replace_all (readonly string source, readonly string find, readonly string replace) system library "fastfuncs110.dll" alias for "Replace_All"
+global function string replace_all (readonly string source, readonly string find, readonly string replace, boolean insensitive) system library "fastfuncs110.dll" alias for "Replace_All"
+end prototypes
+

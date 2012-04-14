@@ -1,0 +1,9 @@
+Building
+========
+
+
+These functions have been built to use PB's internal system call interface.
+
+Run libs/build_libs.bat once.
+Open fastfuncs.sln in Visual C++.
+Choose (Build > Batch Build...) to build the complete set of dll's.

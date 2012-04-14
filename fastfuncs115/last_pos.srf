@@ -1,0 +1,8 @@
+$PBExportHeader$last_pos.srf
+global type last_pos from function_object
+end type
+
+type prototypes
+global function long last_pos (readonly string as_source, readonly string as_find) system library "fastfuncs115.dll" alias for 'Last_Pos'
+end prototypes
+

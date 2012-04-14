@@ -1,0 +1,9 @@
+$PBExportHeader$token.srf
+global type token from function_object
+end type
+
+type prototypes
+global function boolean token (readonly string as_source, readonly string as_delim, ref long al_pos, ref string as_token) system library 'fastfuncs125.dll' alias for "Token"
+global function boolean token (ref string as_source, readonly string as_delim, ref string as_token) system library 'fastfuncs125.dll' alias for "Token2"
+end prototypes
+

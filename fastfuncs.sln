@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fastfuncs", "fastfuncs.vcproj", "{49C7C013-8F72-4D66-87B4-42F44AB496B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release100|Win32 = Release100|Win32
+		Release105|Win32 = Release105|Win32
+		Release110|Win32 = Release110|Win32
+		Release115|Win32 = Release115|Win32
+		Release120|Win32 = Release120|Win32
+		Release125|Win32 = Release125|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Debug|Win32.Build.0 = Debug|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release100|Win32.ActiveCfg = Release100|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release100|Win32.Build.0 = Release100|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release105|Win32.ActiveCfg = Release105|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release105|Win32.Build.0 = Release105|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release110|Win32.ActiveCfg = Release110|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release110|Win32.Build.0 = Release110|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release115|Win32.ActiveCfg = Release115|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release115|Win32.Build.0 = Release115|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release120|Win32.ActiveCfg = Release120|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release120|Win32.Build.0 = Release120|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release125|Win32.ActiveCfg = Release125|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release125|Win32.Build.0 = Release125|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

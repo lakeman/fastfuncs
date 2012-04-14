@@ -1,0 +1,8 @@
+$PBExportHeader$next_tag.srf
+global type next_tag from function_object
+end type
+
+type prototypes
+global function boolean next_tag (readonly string as_source, readonly string as_start_delim, readonly string as_end_delim, ref long al_start_pos, ref string as_tag) system library 'fastfuncs125.dll' alias for "Next_Tag"
+end prototypes
+

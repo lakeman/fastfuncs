@@ -1,0 +1,8 @@
+$PBExportHeader$bitwise_or.srf
+global type bitwise_or from function_object
+end type
+
+type prototypes
+global intrinsic function unsignedlong bitwise_or (unsignedlong x, unsignedlong y) system library "fastfuncs110.dll" alias for "Bitwise_Or"
+end prototypes
+

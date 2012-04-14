@@ -1,0 +1,8 @@
+$PBExportHeader$split.srf
+global type split from function_object
+end type
+
+type prototypes
+global function boolean split (readonly string as_source, readonly string as_delim, ref string as_values[]) system library 'fastfuncs115.dll' alias for "Split"
+end prototypes
+

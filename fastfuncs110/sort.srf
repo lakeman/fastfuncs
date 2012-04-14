@@ -1,0 +1,28 @@
+$PBExportHeader$sort.srf
+global type sort from function_object
+end type
+
+type prototypes
+global function integer sort (ref string as_values[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref powerobject aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref integer aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref string aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref long aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref boolean aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref double aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref ulong aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref date aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref time aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref datetime aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref any aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref decimal aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref blob aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref uint aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref longlong aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref character aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref objhandle aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref real aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+global function integer sort (ref string as_values[], boolean insensitive, ref byte aa_sort_too[]) system library 'fastfuncs110.dll' alias for "Sort"
+end prototypes
+

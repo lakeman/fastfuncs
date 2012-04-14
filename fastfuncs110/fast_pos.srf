@@ -1,0 +1,8 @@
+$PBExportHeader$fast_pos.srf
+global type fast_pos from function_object
+end type
+
+type prototypes
+global function long fast_pos (readonly string as_source, readonly string as_find) system library "fastfuncs110.dll" alias for 'Fast_Pos'
+end prototypes
+

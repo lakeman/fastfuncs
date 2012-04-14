@@ -1,0 +1,10 @@
+$PBExportHeader$get_byte_array.srf
+global type get_byte_array from function_object
+end type
+
+type prototypes
+global function any get_byte_array (readonly blob ab_data) system library "fastfuncs100.dll" alias for 'Get_Byte_Array'
+global function any get_byte_array (readonly blob ab_data, long al_start) system library "fastfuncs100.dll" alias for 'Get_Byte_Array'
+global function any get_byte_array (readonly blob ab_data, long al_start, long al_length) system library "fastfuncs100.dll" alias for 'Get_Byte_Array'
+end prototypes
+

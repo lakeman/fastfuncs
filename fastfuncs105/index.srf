@@ -1,0 +1,23 @@
+$PBExportHeader$index.srf
+global type index from function_object
+end type
+
+type prototypes
+global function long index (readonly int as_find, readonly int as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly boolean as_find, readonly boolean as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly uint as_find, readonly uint as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly char as_find, readonly char as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly byte as_find, readonly byte as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly long as_find, readonly long as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly ulong as_find, readonly ulong as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly real as_find, readonly real as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly longlong as_find, readonly longlong as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly double as_find, readonly double as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly decimal as_find, readonly decimal as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly blob as_find, readonly blob as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly string as_find, readonly string as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly date as_find, readonly date as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly time as_find, readonly time as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+global function long index (readonly datetime as_find, readonly datetime as_array[]) system library "fastfuncs105.dll" alias for 'Index'
+end prototypes
+

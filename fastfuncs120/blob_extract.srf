@@ -1,0 +1,39 @@
+$PBExportHeader$blob_extract.srf
+global type blob_extract from function_object
+end type
+
+type prototypes
+global function boolean blob_extract (ref powerobject ai_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref boolean ai_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref real ai_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref char ai_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref integer ai_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref uint ai_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref long al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref ulong al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref string al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref longlong al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref dec al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref double al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref date al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref time al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref datetime al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref byte al_val, readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref powerobject ai_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref boolean ai_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref real ai_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref char ai_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref integer ai_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref uint ai_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref long al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref ulong al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref string al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref longlong al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref dec al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref double al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref date al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref time al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref datetime al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+global function boolean blob_extract (ref byte al_val[], readonly blob ab_data, ref long al_pos) system library "fastfuncs120.dll" alias for 'Blob_Extract'
+end prototypes
+

@@ -1,0 +1,9 @@
+$PBExportHeader$blob_import.srf
+global type blob_import from function_object
+end type
+
+type prototypes
+global function boolean blob_import (readonly any aa_value, ref blob ab_data, ref long al_pos) system library "fastfuncs125.dll" alias for 'Blob_Import'
+global function boolean blob_import (readonly any aa_value, ref blob ab_data) system library "fastfuncs125.dll" alias for 'Blob_Import'
+end prototypes
+

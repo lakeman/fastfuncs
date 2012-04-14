@@ -1,0 +1,9 @@
+*.exp
+*.lib
+*.ncb
+*.usr.opt
+*.suo
+*.user
+/build/
+/building/
+/Debug/
