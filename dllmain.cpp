@@ -784,18 +784,27 @@ DWORD __declspec(dllexport) __stdcall Append (vm_state *vm, DWORD arg_count){
 	value *v_source = get_lvalue(vm, lv_source);
 	if (v_source->flags&IS_NULL) v.value=FALSE;
 
-	wchar_t *append = (wchar_t *)ot_get_valptr_arg(vm, &isnull);
-	if (isnull || !*append) v.value=FALSE;
-
 	if (v.value){
 		int source_len=0;
 		wchar_t *dest_ptr=NULL;
 		int realloc_size;
 
 		int buff_size = pbstg_sz(vm,(void *)v_source->value);
-		int append_chars = wcslen(append);
-		int append_len = append_chars*2;
-		
+		const int count = arg_count -1;
+		wchar_t **strings = (wchar_t**)_alloca(sizeof(wchar_t**) * count);
+		int *string_lengths = (int *)_alloca(sizeof(int) * count);
+		int append_len=0;
+
+		for (int i=0;i<count;i++){
+			strings[i] = (wchar_t *)ot_get_valptr_arg(vm, &isnull);
+			if (isnull || !*strings[i]){
+				string_lengths[i]=0;
+				continue;
+			}
+			string_lengths[i] = wcslen(strings[i]);
+			append_len+=string_lengths[i]*2;
+		}
+
 		if (v_source->type==pbvalue_string){
 			dest_ptr = (wchar_t *)v_source->value;
 			
@@ -828,16 +837,23 @@ DWORD __declspec(dllexport) __stdcall Append (vm_state *vm, DWORD arg_count){
 		if (realloc_size > buff_size){
 			v_source->value = (DWORD)pbstg_realc(vm, (void *)v_source->value, realloc_size, GET_HEAP(vm));
 			buff_size = pbstg_sz(vm,(void *)v_source->value);
-			if (append == dest_ptr){
-				// if you're trying to append the source string onto the source string, it may have just moved.
-				// (that's also why wcsncpy is used below, or we'd keep appending the string till we hit an invalid page of memory)
-				append = (wchar_t *)v_source->value;
-			}
 		}
 
 		dest_ptr = (wchar_t *)(v_source->value + source_len);
-		wcsncpy(dest_ptr, append, append_chars);
-		dest_ptr[append_chars]=0;
+		for (int i=0;i<count;i++){
+			if (string_lengths[i]==0)
+				continue;
+
+			if (strings[i] == dest_ptr){
+				// if you're trying to append the source string onto the source string, it may have just moved.
+				// (that's also why wcsncpy is used below, or we'd keep appending the string till we hit an invalid page of memory)
+				strings[i] = (wchar_t *)v_source->value;
+			}
+			wcsncpy(dest_ptr, strings[i], string_lengths[i]);
+			dest_ptr+=string_lengths[i];
+		}
+
+		*dest_ptr=0;
 
 		if (v_source->type==pbvalue_string){
 			if (buff_size>=32){

@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <Shlwapi.h>
+#include <malloc.h>
 
 typedef struct {
 	// 0x0004	*this
