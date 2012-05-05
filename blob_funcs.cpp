@@ -144,6 +144,8 @@ DWORD __declspec(dllexport) __stdcall Blob_Extract (vm_state *vm, DWORD arg_coun
 	value ret, *val, *v_pos;
 	blob *source;
 
+	last_vm = vm;
+
 	lv_val = ot_get_next_lvalue_arg(vm,&isnull);
 	val = get_lvalue(vm, lv_val);
 
@@ -167,6 +169,8 @@ DWORD __declspec(dllexport) __stdcall Get_Byte_Array (vm_state *vm, DWORD arg_co
 	DWORD start=0, len, isnull;
 	blob *source;
 	value ret;
+
+	last_vm = vm;
 
 	source=(blob *)ot_get_valptr_arg(vm, &isnull);
 	len=source->len;
@@ -307,6 +311,8 @@ DWORD __declspec(dllexport) __stdcall Blob_Import (vm_state *vm, DWORD arg_count
 	lvalue_ref *lv_pos;
 	value *v_pos;
 
+	last_vm = vm;
+
 	value *v_value = ot_get_next_evaled_arg_no_convert(vm);
 
 	lvalue_ref *lv_data = ot_get_next_lvalue_arg(vm,&isnull);
@@ -336,6 +342,8 @@ DWORD __declspec(dllexport) __stdcall Blob_Mid (vm_state *vm, DWORD arg_count){
 	DWORD start, len, isnull;
 	blob *source, *dest;
 	value v;
+
+	last_vm = vm;
 
 	source = (blob *)ot_get_valptr_arg(vm, &isnull);
 	if (isnull || source==NULL || source->len==0){
@@ -373,6 +381,8 @@ DWORD __declspec(dllexport) __stdcall Blob_Alloc (vm_state *vm, DWORD arg_count)
 	blob *dest;
 	int zero_memory=FALSE;
 	value v;
+
+	last_vm = vm;
 
 	new_size=ot_get_ulongarg(vm, &isnull);
 	if (isnull) new_size=0;

@@ -1,5 +1,6 @@
 #include "pbvm.h"
 
+vm_state *last_vm = NULL;
 
 value * get_lvalue(vm_state *vm, lvalue_ref *value_ref){
 	lvalue *v=value_ref->ptr;
@@ -88,6 +89,8 @@ DWORD __declspec(dllexport) __stdcall Split (vm_state *vm, DWORD arg_count){
 	lvalue_ref *lv_values;
 	value ret;
 
+	last_vm = vm;
+
 	source = (wchar_t *)ot_get_valptr_arg(vm, &source_null);
 	delim = (wchar_t *)ot_get_valptr_arg(vm, &delim_null);
 
@@ -151,6 +154,8 @@ DWORD __declspec(dllexport) __stdcall Token2 (vm_state *vm, DWORD arg_count){
 	lvalue_ref *lv_source, *lv_token;
 	value ret, *v_source;
 	
+	last_vm = vm;
+
 	ret.value=TRUE;
 	ret.type=7;
 	ret.flags=0x0500;
@@ -212,6 +217,8 @@ DWORD __declspec(dllexport) __stdcall Token (vm_state *vm, DWORD arg_count){
 	lvalue_ref *lv_pos, *lv_token;
 	value ret, *v_pos;
 	
+	last_vm = vm;
+
 	ret.value=TRUE;
 	ret.type=7;
 	ret.flags=0x0500;
@@ -279,6 +286,8 @@ DWORD __declspec(dllexport) __stdcall Next_Tag (vm_state *vm, DWORD arg_count){
 	lvalue_ref *lv_pos, *lv_tag;
 	value ret, *v_pos;
 	
+	last_vm = vm;
+
 	ret.value=TRUE;
 	ret.type=7;
 	ret.flags=0x0500;
@@ -391,6 +400,8 @@ DWORD __declspec(dllexport) __stdcall Sort (vm_state *vm, DWORD arg_count){
 	value *v_array1, *v_array2;
 	pb_array *array1, *array2;
 
+	last_vm = vm;
+
 	ret.type=1;
 	ret.flags=0x500;
 	ret.value=1;
@@ -476,6 +487,8 @@ DWORD __declspec(dllexport) __stdcall Sort (vm_state *vm, DWORD arg_count){
 
 DWORD __declspec(dllexport) __stdcall Index (vm_state *vm, DWORD arg_count){
 	value ret;
+	last_vm = vm;
+
 	value *v_find = ot_get_next_evaled_arg_no_convert(vm);
 	value *v_array = ot_get_next_evaled_arg_no_convert(vm);
 	
@@ -578,6 +591,8 @@ DWORD __declspec(dllexport) __stdcall Fast_Pos (vm_state *vm, DWORD arg_count){
 	wchar_t *source, *find;
 	value v;
 
+	last_vm = vm;
+
 	source = (wchar_t *)ot_get_valptr_arg(vm, &source_null);
 	find = (wchar_t *)ot_get_valptr_arg(vm, &find_null);
 	
@@ -606,6 +621,8 @@ DWORD __declspec(dllexport) __stdcall Last_Pos (vm_state *vm, DWORD arg_count){
 	DWORD source_null, find_null;
 	wchar_t *source, *find;
 	value v;
+
+	last_vm = vm;
 
 	source = (wchar_t *)ot_get_valptr_arg(vm, &source_null);
 	find = (wchar_t *)ot_get_valptr_arg(vm, &find_null);
@@ -662,12 +679,14 @@ DWORD __declspec(dllexport) __stdcall Last_Pos (vm_state *vm, DWORD arg_count){
 	return 1;
 }
 
-// string Replace_All (readonly string source, readonly string find, readonly string replace)
+// string Replace_All (readonly string source, readonly string find, readonly string replace [, boolean case_sensitive])
 DWORD __declspec(dllexport) __stdcall Replace_All (vm_state *vm, DWORD arg_count){
 	DWORD source_null, find_null, replace_null, ignored;
 	wchar_t *source, *find, *replace;
 	DWORD insensitive=FALSE;
 	value v;
+
+	last_vm = vm;
 
 	source = (wchar_t *)ot_get_valptr_arg(vm, &source_null);
 	find = (wchar_t *)ot_get_valptr_arg(vm, &find_null);
@@ -776,6 +795,8 @@ DWORD __declspec(dllexport) __stdcall Append (vm_state *vm, DWORD arg_count){
 	DWORD isnull;
 	value v;
 	
+	last_vm = vm;
+
 	v.value=TRUE;
 	v.type=7;
 	v.flags=0x0500;
@@ -877,6 +898,8 @@ DWORD __declspec(dllexport) __stdcall Value_Info (vm_state *vm, DWORD arg_count)
 	value v;
 	wchar_t info[256];
 
+	last_vm = vm;
+
 	value *v_value = ot_get_next_evaled_arg_no_convert(vm);
 	
 	DWORD len=0;
@@ -910,15 +933,20 @@ BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
 					 )
-{/*
+{
 	switch (ul_reason_for_call)
 	{
 	case DLL_PROCESS_ATTACH:
-	case DLL_THREAD_ATTACH:
-	case DLL_THREAD_DETACH:
-	case DLL_PROCESS_DETACH:
+		Install_Crash_Hook();
 		break;
-	}*/
+	case DLL_THREAD_ATTACH:
+		break;
+	case DLL_THREAD_DETACH:
+		break;
+	case DLL_PROCESS_DETACH:
+		Uninstall_Crash_Hook();
+		break;
+	}
 	return TRUE;
 }
 

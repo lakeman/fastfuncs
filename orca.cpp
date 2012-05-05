@@ -109,6 +109,8 @@ DWORD __declspec(dllexport) __stdcall Orca_Init (vm_state *vm, DWORD arg_count){
 	orca_state *state;
 	pb_class *obj;
 
+	last_vm = vm;
+
 	ot_get_curr_obinst_expr(vm, &obj, &isvalid);
 	ob_get_field(vm, obj, 1, &field);
 	if (field.value){

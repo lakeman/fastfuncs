@@ -180,3 +180,7 @@ int __stdcall rtRoutineExec(vm_state *, int, pb_class *, int, int, value*, int, 
 
 value * get_lvalue(vm_state *vm, lvalue_ref *value_ref);
 void Throw_Exception(vm_state *vm, wchar_t *text, ...);
+void Install_Crash_Hook();
+void Uninstall_Crash_Hook();
+
+extern vm_state *last_vm;

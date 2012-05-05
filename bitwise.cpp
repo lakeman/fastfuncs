@@ -6,6 +6,8 @@ DWORD __declspec(dllexport) __stdcall Bitwise_And (vm_state *vm, DWORD arg_count
 	DWORD isnull;
 	DWORD a1, a2;
 	value v;
+	last_vm = vm;
+
 	a1=ot_get_ulongarg(vm, &isnull);
 	if (isnull) a1=0;
 	a2=ot_get_ulongarg(vm, &isnull);
@@ -21,6 +23,8 @@ DWORD __declspec(dllexport) __stdcall Bitwise_Or (vm_state *vm, DWORD arg_count)
 	DWORD isnull;
 	DWORD a1, a2;
 	value v;
+	last_vm = vm;
+
 	a1=ot_get_ulongarg(vm, &isnull);
 	if (isnull) a1=0;
 	a2=ot_get_ulongarg(vm, &isnull);
@@ -36,6 +40,8 @@ DWORD __declspec(dllexport) __stdcall Bitwise_Xor (vm_state *vm, DWORD arg_count
 	DWORD isnull;
 	DWORD a1, a2;
 	value v;
+	last_vm = vm;
+
 	a1=ot_get_ulongarg(vm, &isnull);
 	if (isnull) a1=0;
 	a2=ot_get_ulongarg(vm, &isnull);
@@ -51,6 +57,8 @@ DWORD __declspec(dllexport) __stdcall Bitwise_Not (vm_state *vm, DWORD arg_count
 	DWORD isnull;
 	DWORD a1;
 	value v;
+	last_vm = vm;
+
 	a1=ot_get_ulongarg(vm, &isnull);
 	if (isnull) a1=0;
 	v.value=~a1;
@@ -64,6 +72,8 @@ DWORD __declspec(dllexport) __stdcall Bitwise_Shift_Left (vm_state *vm, DWORD ar
 	DWORD isnull;
 	DWORD a1, a2;
 	value v;
+	last_vm = vm;
+
 	a1=ot_get_ulongarg(vm, &isnull);
 	if (isnull) a1=0;
 	a2=ot_get_ulongarg(vm, &isnull);
@@ -79,6 +89,8 @@ DWORD __declspec(dllexport) __stdcall Bitwise_Shift_Right (vm_state *vm, DWORD a
 	DWORD isnull;
 	DWORD a1, a2;
 	value v;
+	last_vm = vm;
+
 	a1=ot_get_ulongarg(vm, &isnull);
 	if (isnull) a1=0;
 	a2=ot_get_ulongarg(vm, &isnull);
@@ -92,6 +104,8 @@ DWORD __declspec(dllexport) __stdcall Bitwise_Shift_Right (vm_state *vm, DWORD a
 
 DWORD __declspec(dllexport) __stdcall Address (vm_state *vm, DWORD arg_count){
 	value v;
+
+	last_vm = vm;
 
 	value *v_value = ot_get_next_evaled_arg_no_convert(vm);
 	if (v_value->flags&IS_NULL){
