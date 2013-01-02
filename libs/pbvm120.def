@@ -33,3 +33,4 @@ EXPORTS
 ?ob_get_field@@YGXPAUvm_state@@PAUpb_class@@HPAUvalue@@@Z @1725
 ?ot_get_ulongarg@@YGHPAUvm_state@@PAK@Z @1059
 ?rtRoutineExec@@YGHPAUvm_state@@HPAUpb_class@@HHPAUvalue@@HHHH@Z @1478
+?ob_invoke_dynamic@@YGJPAUvalue@@HHPA_WHPAX0@Z @1301

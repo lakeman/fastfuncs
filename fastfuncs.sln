@@ -6,6 +6,7 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug105|Win32 = Debug105|Win32
 		Release100|Win32 = Release100|Win32
 		Release105|Win32 = Release105|Win32
 		Release110|Win32 = Release110|Win32
@@ -16,6 +17,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Debug|Win32.ActiveCfg = Debug|Win32
 		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Debug|Win32.Build.0 = Debug|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Debug105|Win32.ActiveCfg = Debug105|Win32
+		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Debug105|Win32.Build.0 = Debug105|Win32
 		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release100|Win32.ActiveCfg = Release100|Win32
 		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release100|Win32.Build.0 = Release100|Win32
 		{49C7C013-8F72-4D66-87B4-42F44AB496B0}.Release105|Win32.ActiveCfg = Release105|Win32
