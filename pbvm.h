@@ -17,6 +17,7 @@ typedef struct {
 	// 0x0154	stack pointer / evaled_arglist
 	// 0x0158	something else stack related?
 	// 0x0160	related to exception rethrow/cleaned-up ?
+	// 0x0164 VALUE : _CALLED_RETURN_VALUE
 	// 0x016c   routine level
 	// 0x0200	local variables
 	// 0x0204	something like available values slots in stack pointer ?
@@ -183,13 +184,14 @@ wchar_t * __stdcall ob_event_module_name(vm_state *, group_data *, class_data *,
 bool __stdcall shlist_traversal(void *, void *, shlist_callback);
 int __stdcall rtRoutineExec(vm_state *, int, pb_class *, int, int, value*, int, int, int, int);
 LONG __stdcall ob_invoke_dynamic ( value *, int ,  int, wchar_t*, int, void*, value* );
+bool __stdcall ot_check_any_match_type ( vm_state *, value *, int type);
 
 #define GET_HEAP(x) (*(DWORD *)(((char *)x) + 0x11e))
 #define GET_STACKLIST(x) (void*)(*(DWORD *)(((char *)x) + 218))
 #define GET_THROW(x) (((pb_class**)x)[147])
 #define GET_EVALEDARGLIST(x) (value*)(*(DWORD *)(((char *)x) + 0x0154))
 #define GET_THROWNEXCEPTION(x) (*(DWORD *)(((char *)x) + 0x024c))
-
+#define GET_CALLEDRETURNVALUE(x) (value*)((DWORD *)(((char *)x) + 0x0164))
 
 value * get_lvalue(vm_state *vm, lvalue_ref *value_ref);
 void Throw_Exception(vm_state *vm, wchar_t *text, ...);

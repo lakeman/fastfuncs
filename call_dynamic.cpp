@@ -31,7 +31,13 @@ DWORD __declspec(dllexport) __stdcall Call_Dynamic (vm_state *vm, DWORD arg_coun
 		*unk_struct_mbr_ptr &= 0x0FFFE;
 		*unk_struct_mbr_ptr |= 1;
 	}
-	ot_set_return_val(vm, &ret);
+	value * called_return_value = GET_CALLEDRETURNVALUE(vm);
+	if(ret.flags == 0x1d01){ //try to know if "ret" is valid or not
+		ot_no_return_val(vm);
+	}
+	else {
+		ot_set_return_val(vm, &ret);
+	}
     return 1;
 }
 
