@@ -12,6 +12,7 @@ typedef struct {
 	// 0x0004	*this
 	// 0X000c   dbgthis
 	// 0X00c6	curr obj group (used for shared variable and scope resolution for dynamic call)
+	// 0X00d2	current object (_This)  pb_object*
 	// 0x011e	heap ptr
 	// 0x015c	stack position
 	// 0x0154	stack pointer / evaled_arglist
@@ -127,10 +128,18 @@ typedef struct{
 	short f28;
 }stack_info;
 
+typedef struct{
+	long f1;
+	short f2;
+	long current_line_no;
+	//and other bytes up to a length of 0x22h bytes (sizeof allocated struct)
+}current_stack_info;
+
 typedef struct{ // don't need to know what's actually in this struct...
 }group_data;
 
 typedef struct{ // don't need to know what's actually in this struct...
+	//group_data* groupe
 }class_data;
 
 typedef struct {
@@ -185,7 +194,9 @@ bool __stdcall shlist_traversal(void *, void *, shlist_callback);
 int __stdcall rtRoutineExec(vm_state *, int, pb_class *, int, int, value*, int, int, int, int);
 LONG __stdcall ob_invoke_dynamic ( value *, int ,  int, wchar_t*, int, void*, value* );
 bool __stdcall ot_check_any_match_type ( vm_state *, value *, int type);
-
+current_stack_info* __stdcall ob_get_current_stack_location(vm_state *);
+void __stdcall pbstg_fee(vm_state*, void*);
+// nice typo ;-) -----^
 #define GET_HEAP(x) (*(DWORD *)(((char *)x) + 0x11e))
 #define GET_STACKLIST(x) (void*)(*(DWORD *)(((char *)x) + 218))
 #define GET_THROW(x) (((pb_class**)x)[147])

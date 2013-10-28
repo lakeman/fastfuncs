@@ -79,7 +79,9 @@ DWORD __declspec(dllexport) __stdcall Stack_Trace (vm_state *vm, DWORD arg_count
 	ret.type=7;
 	ret.flags=0x0500;
 
-	stack_build_string(&state, -1);
+	current_stack_info* csti = ob_get_current_stack_location( vm );
+	stack_build_string(&state, csti->current_line_no );
+	pbstg_fee( vm, (void*) csti );
 	
 	ot_assign_ref_array(vm, lv_values->ptr, state.values, 0, 0);
 	ot_set_return_val(vm, &ret);
@@ -99,7 +101,10 @@ int WINAPI filter(LPEXCEPTION_POINTERS ptrs){
 
 		void *stack_list = GET_STACKLIST(last_vm);
 		shlist_traversal(stack_list, &state, callback);
-		stack_build_string(&state, -1);
+		current_stack_info* csti = ob_get_current_stack_location( last_vm );
+		stack_build_string(&state, csti->current_line_no);
+		pbstg_fee( last_vm, (void*) csti );
+		
 		MessageBoxW(NULL, buffer, L"Unexpected GPF", MB_OK);
 	}
 	return EXCEPTION_EXECUTE_HANDLER;
