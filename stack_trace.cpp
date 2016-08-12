@@ -32,7 +32,15 @@ void stack_build_string(callback_state *state, short line_no){
 	if (state->index==0 || state->group_name==NULL)
 		return;
 
-	wnsprintf(temp, 256, L"%s.%s.%s Line: %d",state->group_name, state->class_name, state->routine_name, line_no);
+	if (wcscmp(state->group_name, state->class_name) == 0) {
+		if (wcscmp(state->group_name, state->routine_name) == 0) {
+			wnsprintf(temp, 256, L"%s Line: %d", state->routine_name, line_no);
+		} else {
+			wnsprintf(temp, 256, L"%s.%s Line: %d", state->group_name, state->routine_name, line_no);
+		}
+	} else {
+		wnsprintf(temp, 256, L"%s.%s.%s Line: %d", state->group_name, state->class_name, state->routine_name, line_no);
+	}
 	if (state->values != NULL){
 		value *val=ot_array_index(state->vm, state->values, state->index -1);
 		set_string(state->vm, temp, val);
