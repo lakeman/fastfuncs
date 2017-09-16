@@ -1,0 +1,9 @@
+$PBExportHeader$blob_mid.srf
+global type blob_mid from function_object
+end type
+
+type prototypes
+global function blob blob_mid (readonly blob ab_in, unsignedlong al_start) system library "fastfuncs170.dll" alias for 'Blob_Mid'
+global function blob blob_mid (readonly blob ab_in, unsignedlong al_start, unsignedlong al_len) system library "fastfuncs170.dll" alias for 'Blob_Mid'
+end prototypes
+
