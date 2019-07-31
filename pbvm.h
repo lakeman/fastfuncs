@@ -10,11 +10,20 @@
 
 typedef struct {
 	// 0x0004	*this
+	// 0X000c   dbgthis
+	// 0X00c6	curr obj group (used for shared variable and scope resolution for dynamic call)
+	// 0X00d2	current object (_This)  pb_object*
 	// 0x011e	heap ptr
 	// 0x015c	stack position
-	// 0x0154	stack pointer
+	// 0x0154	stack pointer / evaled_arglist
 	// 0x0158	something else stack related?
-}vm_state;
+	// 0x0160	related to exception rethrow/cleaned-up ?
+	// 0x0164 VALUE : _CALLED_RETURN_VALUE
+	// 0x016c   routine level
+	// 0x0200	local variables
+	// 0x0204	something like available values slots in stack pointer ?
+	// 0x024c	thrown_exception
+}vm_state; //alias for POB_THIS
 
 #pragma pack(1)
 
@@ -119,10 +128,18 @@ typedef struct{
 	short f28;
 }stack_info;
 
+typedef struct{
+	long f1;
+	short f2;
+	long current_line_no;
+	//and other bytes up to a length of 0x22h bytes (sizeof allocated struct)
+}current_stack_info;
+
 typedef struct{ // don't need to know what's actually in this struct...
 }group_data;
 
 typedef struct{ // don't need to know what's actually in this struct...
+	//group_data* groupe
 }class_data;
 
 typedef struct {
@@ -130,6 +147,9 @@ typedef struct {
 
 typedef struct {
 } pb_class;
+
+typedef struct {
+} pb_object;
 
 typedef bool __stdcall shlist_callback(stack_info *, void *);
 
@@ -172,11 +192,17 @@ class_data * __stdcall ob_get_class_entry(vm_state *, group_data **, short);
 wchar_t * __stdcall ob_event_module_name(vm_state *, group_data *, class_data *, short);
 bool __stdcall shlist_traversal(void *, void *, shlist_callback);
 int __stdcall rtRoutineExec(vm_state *, int, pb_class *, int, int, value*, int, int, int, int);
-
+LONG __stdcall ob_invoke_dynamic ( value *, int ,  int, wchar_t*, int, void*, value* );
+bool __stdcall ot_check_any_match_type ( vm_state *, value *, int type);
+current_stack_info* __stdcall ob_get_current_stack_location(vm_state *);
+void __stdcall pbstg_fee(vm_state*, void*);
+// nice typo ;-) -----^
 #define GET_HEAP(x) (*(DWORD *)(((char *)x) + 0x11e))
 #define GET_STACKLIST(x) (void*)(*(DWORD *)(((char *)x) + 218))
 #define GET_THROW(x) (((pb_class**)x)[147])
-
+#define GET_EVALEDARGLIST(x) (value*)(*(DWORD *)(((char *)x) + 0x0154))
+#define GET_THROWNEXCEPTION(x) (*(DWORD *)(((char *)x) + 0x024c))
+#define GET_CALLEDRETURNVALUE(x) (value*)((DWORD *)(((char *)x) + 0x0164))
 
 value * get_lvalue(vm_state *vm, lvalue_ref *value_ref);
 void Throw_Exception(vm_state *vm, wchar_t *text, ...);

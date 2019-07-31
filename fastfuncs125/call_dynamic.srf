@@ -1,0 +1,8 @@
+$PBExportHeader$call_dynamic.srf
+global type call_dynamic from function_object
+end type
+
+type prototypes
+global function any call_dynamic (powerobject apow_obj, readonly string as_method, ...) system library "fastfuncs125.dll" alias for "Call_Dynamic"
+end prototypes
+

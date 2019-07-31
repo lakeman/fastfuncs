@@ -4,3 +4,4 @@ EXPORTS
 ?pbstg_alc@@YGPAXPAUvm_state@@HH@Z @5
 ?pbstg_sz@@YGHPAUvm_state@@PAX@Z @14
 ?pbstg_realc@@YGPAXPAUvm_state@@PAXHH@Z @9
+?pbstg_fee@@YGXPAUvm_state@@PAX@Z @6
