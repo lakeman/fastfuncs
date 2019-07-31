@@ -1,0 +1,7 @@
+LIBRARY	"pbshr190.dll"
+EXPORTS
+?shlist_traversal@@YG_NPAX0P6G_NPAUstack_info@@0@Z@Z @224
+?pbstg_alc@@YGPAXPAUvm_state@@HH@Z @5
+?pbstg_sz@@YGHPAUvm_state@@PAX@Z @14
+?pbstg_realc@@YGPAXPAUvm_state@@PAXHH@Z @9
+?pbstg_fee@@YGXPAUvm_state@@PAX@Z @6
